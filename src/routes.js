@@ -2,9 +2,11 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 // Layout Types
-import { DefaultLayout } from "./layouts";
+import { DefaultLayout, LoginLayout } from "./layouts";
 
 // Route Views
+import SignupView from './views/Signup';
+import LoginView from './views/Login'
 import BlogOverview from "./views/BlogOverview";
 import UserProfileLite from "./views/UserProfileLite";
 import AddNewPost from "./views/AddNewPost";
@@ -17,8 +19,18 @@ export default [
   {
     path: "/",
     exact: true,
-    layout: DefaultLayout,
-    component: () => <Redirect to="/blog-overview" />
+    layout: LoginLayout,
+    component: () => <Redirect to="/login" />
+  },
+  {
+    path: "/signup",
+    layout: LoginLayout,
+    component: SignupView
+  },
+  {
+    path: "/login",
+    layout: LoginLayout,
+    component: LoginView
   },
   {
     path: "/blog-overview",
